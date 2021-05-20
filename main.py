@@ -3,3 +3,4 @@ y = 12
 print(x*y)
 print(x-y)
 ppp=100
+ppppp='это проверка git'
