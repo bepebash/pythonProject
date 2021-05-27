@@ -1,28 +1,31 @@
 # -*- coding: utf-8 -*-
 
+# (цикл for)
 import simple_draw as sd
+import random
 
 sd.resolution = (800, 600)
-radius = 50
 
 
-# Нарисовать пузырек - три вложенных окружностей с шагом 5 пикселей
-# TODO здесь ваш код
-# Написать функцию рисования пузырька, принммающую 2 (или более) параметра: точка рисовании и шаг
-# TODO здесь ваш код
-def draw_circle(x, y, step):
-    point = sd.get_point(x, y)
-    sd.circle(point, step)
+# Написать функцию отрисовки смайлика в произвольной точке экрана
+# Форма рожицы-смайлика на ваше усмотрение
+# Параметры функции: кордината X, координата Y, цвет.
+# Вывести 10 смайликов в произвольных точках экрана.
+def smile(coord_x, coord_y, color):
+    point = sd.get_point(coord_x, coord_y)
+    sd.circle(point, 50, color, 5)
+    point_eye_left = sd.get_point(coord_x - 20, coord_y - 20)
+    sd.circle(point_eye_left, 10)
+    point_eye_right = sd.get_point(coord_x + 20, coord_y - 20)
+    sd.circle(point_eye_right, 10)
+    point_sm_st = sd.get_point(coord_x - 10, coord_y - 40)
+    point_sm_en = sd.get_point(coord_x + 10, coord_y - 40)
+    sd.line(point_sm_st, point_sm_en, color, 2)
 
-draw_circle(100,100,20)
 
-# Нарисовать 10 пузырьков в ряд
-# TODO здесь ваш код
 for i in range(10):
-# Нарисовать три ряда по 10 пузырьков
-# TODO здесь ваш код
-
-# Нарисовать 100 пузырьков в произвольных местах экрана случайными цветами
-# TODO здесь ваш код
+    x = random.randint(100, 700)
+    y = random.randint(100, 500)
+    smile(x, y, sd.random_color())
 
 sd.pause()
